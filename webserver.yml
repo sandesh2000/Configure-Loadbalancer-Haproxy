@@ -1,0 +1,13 @@
+- hosts: 192.168.1.8
+  tasks:
+  - name: "Installing Httpd package"
+    package:
+       name: httpd
+  - name: "Transferring webpages"
+    copy:
+       src: "server.html"
+       dest: "/var/www/html/server.html"
+  - name: "Checking service status"
+    service:
+       name: httpd
+       state: restarted
